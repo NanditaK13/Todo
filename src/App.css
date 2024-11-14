@@ -1,0 +1,334 @@
+/* src/App.css */
+
+/* Basic reset and layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main container */
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  /* max-width: 1200px; */
+}
+
+/* Form Section */
+.form-section {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  width: 350px;
+  transition: all 0.3s ease;
+}
+
+.form-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #696c69;
+  font-weight: bold;
+}
+
+form input {
+  width: 93%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #28a745; /* Green border */
+  background-color: #fff;
+}
+
+form button {
+  width: 100%;
+  padding: 14px;
+  background-color: #28a745; /* Green button */
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background-color: #218838; /* Dark green on hover */
+}
+
+/* Validation Message Styling */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* List Section */
+.list-section {
+  flex: 1;
+  /* max-width: 750px; */
+  margin-top: 20px;
+}
+
+/* Table Styling */
+.todo-table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 15px;
+}
+
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.todo-table th,
+.todo-table td {
+  padding: 14px 18px;
+  text-align: left;
+  max-width: 200px; /* Set max width to trigger text truncation */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Show ellipsis when text overflows */
+  word-wrap: break-word; /* Allow long words to break and not overflow */
+}
+
+.todo-table th {
+  background-color: #3498db;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.todo-table td {
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1rem;
+}
+
+.todo-table tr:hover {
+  background-color: #f4f4f4;
+}
+
+.todo-table td:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+.todo-table button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.todo-table button:hover {
+  background-color: #c0392b;
+}
+
+.todo-table .edit-btn {
+  background-color: #3498db;
+}
+
+.todo-table .edit-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Tooltip for full text on hover */
+.todo-table td[title]:hover {
+  position: relative;
+}
+
+.todo-table td[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  padding: 5px;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  white-space: normal;
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+/* Empty state when no todos exist */
+.no-todos {
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .form-section {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .list-section {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* src/App.css */
+
+/* Popup background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.popup-content h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.confirm-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.confirm-btn:hover {
+  background-color: #c0392b;
+}
+
+.cancel-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cancel-btn:hover {
+  background-color: #2980b9;
+}
+
+/* src/App.css */
+
+/* Popup background */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content */
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.popup-content h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.confirm-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.confirm-btn:hover {
+  background-color: #c0392b;
+}
+
+.cancel-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cancel-btn:hover {
+  background-color: #2980b9;
+}
