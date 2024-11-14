@@ -14,6 +14,10 @@ const TodoForm = ({ addTodo, formData, setFormData, editingIndex }) => {
     if (!formData.name) {
       newErrors.name = "Name is required.";
     }
+    else if(!/^[A-Za-z]+$/.test(formData.name)){
+      console.log(!/^[A-Za-z]+$/.test(formData.name));
+      newErrors.name = "Please enter a valid name.";
+    }
 
     if (!formData.email) {
       newErrors.email = "Email is required.";
